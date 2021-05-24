@@ -1,0 +1,9 @@
+VGA by gf-rog
+Program generujący obraz na płytce Blue Pill (STM32F103C8).
+Parametry:
+	- rozdzielczość 256x240 pikseli
+	- kolory wybierane z palety 3-3-2 bit RGB (https://en.wikipedia.org/wiki/List_of_8-bit_computer_hardware_graphics#8-bit_RGB_(also_known_as_3-3-2_bit_RGB))
+	- podział na znaki 8x8 pikseli (2bpp)
+	- każdy znak ma przypisany kolor jednej z 16 palet
+
+Program pozwala na wpisywanie własnych znaków przez połączenie typu serial.

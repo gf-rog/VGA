@@ -1,0 +1,93 @@
+
+
+
+ARM Macro Assembler    Page 1 
+
+
+    1 00000000                 area             transfer, code
+    2 00000000         Transfer
+                               PROC
+    3 00000000         
+    4 00000000                 EXPORT           Transfer
+    5 00000000                 EXTERN           draw_scan
+    6 00000000                 EXTERN           scan_data
+    7 00000000         
+    8 00000000 E92D 03FF       PUSH             {r0-r9}
+    9 00000004 4805            LDR              r0, =draw_scan
+   10 00000006 4906            LDR              r1, =scan_data
+   11 00000008         Trans
+   12 00000008 E8B0 03FC       LDM              r0!, {r2-r9}
+   13 0000000C E8A1 03FC       STM              r1!, {r2-r9}
+   14 00000010 F010 0FFF       TST              r0, #0xFF
+   15 00000014 D1F8            BNE              Trans
+   16 00000016         
+   17 00000016         ;Put the registers back
+   18 00000016 E8BD 03FF       POP              {r0-r9}
+   19 0000001A 4770            BX               lr
+   20 0000001C                 ENDP
+   21 0000001C                 END
+              00000000 
+              00000000 
+Command Line: --debug --xref --diag_suppress=9931 --cpu=Cortex-M3 --apcs=interw
+ork --depend=.\objects\transfer.d -o.\objects\transfer.o -I.\RTE\Device\STM32F1
+03CB -I.\RTE\_Target_1 -ID:\Keil_v5\ARM\PACK\ARM\CMSIS\5.4.0\CMSIS\Core\Include
+ -ID:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.3.0\Device\Include -ID:\Keil_v5\ARM
+\PACK\Keil\STM32F1xx_DFP\2.3.0\Device\StdPeriph_Driver\inc -ID:\Keil_v5\ARM\PAC
+K\Keil\STM32F1xx_DFP\2.3.0\RTE_Driver --predefine="__UVISION_VERSION SETA 524" 
+--predefine="_RTE_ SETA 1" --predefine="STM32F10X_MD SETA 1" --list=.\listings\
+transfer.lst Transfer.s
+
+
+
+ARM Macro Assembler    Page 1 Alphabetic symbol ordering
+Relocatable symbols
+
+Trans 00000008
+
+Symbol: Trans
+   Definitions
+      At line 11 in file Transfer.s
+   Uses
+      At line 15 in file Transfer.s
+Comment: Trans used once
+Transfer 00000000
+
+Symbol: Transfer
+   Definitions
+      At line 2 in file Transfer.s
+   Uses
+      At line 4 in file Transfer.s
+Comment: Transfer used once
+transfer 00000000
+
+Symbol: transfer
+   Definitions
+      At line 1 in file Transfer.s
+   Uses
+      None
+Comment: transfer unused
+3 symbols
+
+
+
+ARM Macro Assembler    Page 1 Alphabetic symbol ordering
+External symbols
+
+draw_scan 00000000
+
+Symbol: draw_scan
+   Definitions
+      At line 5 in file Transfer.s
+   Uses
+      At line 9 in file Transfer.s
+Comment: draw_scan used once
+scan_data 00000000
+
+Symbol: scan_data
+   Definitions
+      At line 6 in file Transfer.s
+   Uses
+      At line 10 in file Transfer.s
+Comment: scan_data used once
+2 symbols
+340 symbols in table
